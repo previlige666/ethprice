@@ -9,7 +9,6 @@ from ui_dis import Ui_life
 
 class Eth(QWidget):
     def __init__(self):
-        # self.ui = QUiLoader().load('dis.ui')
         super(Eth, self).__init__()
         self.ui = Ui_life()
         self.ui.setupUi(self)
@@ -18,7 +17,7 @@ class Eth(QWidget):
     def realprice(self):
         url = 'https://api.huobi.pro/market/trade?symbol=ethusdt'
         proxy = {"http": "http://127.0.0.1:889",
-                 "https": "https://127.0.0.1:889"}
+                 "https": "https://127.0.0.1:889"}  #根据自己的代理软件来设置对应的端口，一般是1080或者1081
         response = requests.get(url, proxies=proxy)
         text = eval(response.text)
         ts = text['ts']
